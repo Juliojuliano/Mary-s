@@ -4,6 +4,10 @@
 
 Landing page para Mary’s Brinq — locação de brinquedos, mesas e cadeiras no ABC.
 
+## Repositório GitHub
+
+- https://github.com/Juliojuliano/Mary-s
+
 ## Visão geral
 
 - Tecnologia: React + TypeScript + Vite
@@ -25,7 +29,7 @@ npm install
 npm run dev
 ```
 
-3. Abra o navegador em `http://127.0.0.1:5174`.
+3. Abra o navegador em `http://127.0.0.1:5173`.
 
 ## Build de produção
 
