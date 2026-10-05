@@ -10,8 +10,7 @@ const LINKS = {
   facebook: 'https://www.facebook.com/marysbrinq',
   phone: 'tel:+5511980287933',
   // wa.me exige o número só com dígitos (DDI + DDD + número)
-  whatsapp: 'https://wa.me/5511980287933?text=' + encodeURIComponent('Olá! Gostaria de um orçamento para minha festa.'),
-  github: 'https://github.com/Juliojuliano/Mary-s'
+  whatsapp: 'https://wa.me/5511980287933?text=' + encodeURIComponent('Olá! Gostaria de um orçamento para minha festa.')
 };
 
 const social: { name: string; url: string; icon: JSX.Element }[] = [
@@ -91,17 +90,8 @@ function App() {
           </p>
 
           <div className="hero-actions">
-            <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="button button-primary">
-              Orçamento pelo Instagram
-            </a>
             <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="button button-whatsapp">
-              Chamar no WhatsApp
-            </a>
-            <a href={LINKS.phone} className="button button-phone">
-              📞 (11) 98028-7933
-            </a>
-            <a href="#servicos" className="button button-secondary">
-              Ver serviços
+              Orçamento pelo WhatsApp
             </a>
           </div>
 
@@ -176,7 +166,6 @@ function App() {
         <nav className="footer-links" aria-label="Links do rodapé">
           <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
           <a href={LINKS.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
-          <a href={LINKS.github} target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
       </footer>
 
