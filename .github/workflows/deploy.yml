@@ -1,0 +1,54 @@
+name: Deploy na Vercel
+
+# Publica em produção a cada push na main (ou manualmente pela aba Actions)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Evita dois deploys simultâneos; o mais novo substitui o anterior na fila
+concurrency:
+  group: vercel-production
+  cancel-in-progress: true
+
+env:
+  # IDs do projeto "marys-brinq" na Vercel (não são segredos)
+  VERCEL_ORG_ID: team_yHlaKAx0c5hNNCry75K5cPAx
+  VERCEL_PROJECT_ID: prj_iJHMGkUp0TkJTYdVgvwMXnOZC5os
+  # Único segredo necessário: Settings > Secrets and variables > Actions > VERCEL_TOKEN
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confere o segredo VERCEL_TOKEN
+        run: |
+          if [ -z "$VERCEL_TOKEN" ]; then
+            echo "::error::Crie o segredo VERCEL_TOKEN em Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instala dependências
+        run: npm ci
+
+      - name: Checa tipos e build local
+        run: |
+          npx tsc --noEmit
+          npm run build
+
+      - name: Baixa as configurações do projeto na Vercel
+        run: npx vercel@latest pull --yes --environment=production --token="$VERCEL_TOKEN"
+
+      - name: Build para produção
+        run: npx vercel@latest build --prod --token="$VERCEL_TOKEN"
+
+      - name: Deploy em produção
+        run: npx vercel@latest deploy --prebuilt --prod --token="$VERCEL_TOKEN"
