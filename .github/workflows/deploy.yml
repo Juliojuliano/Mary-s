@@ -15,17 +15,18 @@ env:
   # IDs do projeto "marys-brinq" na Vercel (não são segredos)
   VERCEL_ORG_ID: team_yHlaKAx0c5hNNCry75K5cPAx
   VERCEL_PROJECT_ID: prj_iJHMGkUp0TkJTYdVgvwMXnOZC5os
-  # Único segredo necessário: Settings > Secrets and variables > Actions > VERCEL_TOKEN
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  # Token da Vercel: usa VERCEL_TOKEN e, se não existir, o segredo AMARYS_BRINQS
+  # (Settings > Secrets and variables > Actions > Repository secrets)
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN || secrets.AMARYS_BRINQS }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Confere o segredo VERCEL_TOKEN
+      - name: Confere o token da Vercel
         run: |
           if [ -z "$VERCEL_TOKEN" ]; then
-            echo "::error::Crie o segredo VERCEL_TOKEN em Settings > Secrets and variables > Actions."
+            echo "::error::Crie o segredo VERCEL_TOKEN (ou AMARYS_BRINQS) em Settings > Secrets and variables > Actions."
             exit 1
           fi
 
