@@ -60,4 +60,5 @@ npx vercel --prod --yes
 
 - Instagram: https://www.instagram.com/marysbrinqsbc
 - Facebook: https://www.facebook.com/marysbrinq
+- GitHub: https://github.com/Juliojuliano/Mary-s
 - Telefone: `+55 (11) 98028-7933`

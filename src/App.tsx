@@ -4,10 +4,20 @@ import foto03 from './imagens/foto03.jpeg';
 import foto04 from './imagens/foto04.jpeg';
 import foto05 from './imagens/foto05.jpeg';
 
+// Links centralizados: altere aqui e a página inteira é atualizada
+const LINKS = {
+  instagram: 'https://www.instagram.com/marysbrinqsbc',
+  facebook: 'https://www.facebook.com/marysbrinq',
+  phone: 'tel:+5511980287933',
+  // wa.me exige o número só com dígitos (DDI + DDD + número)
+  whatsapp: 'https://wa.me/5511980287933?text=' + encodeURIComponent('Olá! Gostaria de um orçamento para minha festa.'),
+  github: 'https://github.com/Juliojuliano/Mary-s'
+};
+
 const social: { name: string; url: string; icon: JSX.Element }[] = [
   {
     name: 'Insta',
-    url: 'https://www.instagram.com/marysbrinqsbc',
+    url: LINKS.instagram,
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <linearGradient id="instaGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
@@ -23,7 +33,7 @@ const social: { name: string; url: string; icon: JSX.Element }[] = [
   },
   {
     name: 'Face',
-    url: 'https://www.facebook.com/marysbrinq',
+    url: LINKS.facebook,
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="20" height="20" rx="6" fill="#1877F2" />
@@ -32,6 +42,12 @@ const social: { name: string; url: string; icon: JSX.Element }[] = [
     )
   }
 ];
+
+const WhatsAppIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.95L2 22l5.2-1.5A9.9 9.9 0 1 0 12.04 2Zm0 18.1c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3a8.1 8.1 0 1 1 6.7 3.6Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.8c.1.2 1.9 2.9 4.6 4 1.7.7 2.4.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" />
+  </svg>
+);
 
 const features = [
   {
@@ -75,10 +91,13 @@ function App() {
           </p>
 
           <div className="hero-actions">
-            <a href="https://www.instagram.com/marysbrinqsbc" target="_blank" rel="noreferrer" className="button button-primary">
+            <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="button button-primary">
               Orçamento pelo Instagram
             </a>
-            <a href="tel:+5511980287933" className="button button-phone">
+            <a href={LINKS.whatsapp} target="_blank" rel="noopener noreferrer" className="button button-whatsapp">
+              Chamar no WhatsApp
+            </a>
+            <a href={LINKS.phone} className="button button-phone">
               📞 (11) 98028-7933
             </a>
             <a href="#servicos" className="button button-secondary">
@@ -94,7 +113,7 @@ function App() {
 
           <div className="social-links">
             {social.map((item) => (
-              <a key={item.name} href={item.url} target="_blank" rel="noreferrer" aria-label={item.name}>
+              <a key={item.name} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={item.name}>
                 <span>{item.icon}</span>
               </a>
             ))}
@@ -154,7 +173,23 @@ function App() {
           <strong>Mary's Brinq</strong>
           <p>Locação de brinquedos, mesas e cadeiras no ABC.</p>
         </div>
+        <nav className="footer-links" aria-label="Links do rodapé">
+          <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href={LINKS.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href={LINKS.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
       </footer>
+
+      {/* Botão flutuante com animação de pulso */}
+      <a
+        href={LINKS.whatsapp}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-float"
+        aria-label="Falar com a Mary's Brinq no WhatsApp"
+      >
+        <WhatsAppIcon />
+      </a>
     </div>
   );
 }

@@ -392,3 +392,88 @@ textarea {
     padding: 22px;
   }
 }
+
+/* ---------- WhatsApp ---------- */
+.button-whatsapp {
+  background: #25d366;
+  color: #fff;
+  border: 1px solid #1ebe5a;
+  box-shadow: 0 14px 24px rgba(37, 211, 102, 0.28);
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #25d366;
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.45);
+  animation: whatsapp-bounce 3.2s ease-in-out infinite;
+}
+
+/* anel que expande e some, chamando atenção sem incomodar */
+.whatsapp-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  z-index: -1;
+  animation: whatsapp-pulse 2s ease-out infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  animation-play-state: paused;
+}
+
+@keyframes whatsapp-pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+@keyframes whatsapp-bounce {
+  0%, 85%, 100% { transform: translateY(0); }
+  90% { transform: translateY(-8px); }
+  95% { transform: translateY(0); }
+}
+
+/* ---------- Rodapé colorido ---------- */
+.footer-section {
+  background: linear-gradient(135deg, #7b2ff7 0%, #e0369b 55%, #ff7a1a 100%);
+  border: none;
+  color: #fff;
+  box-shadow: 0 20px 40px rgba(224, 54, 155, 0.25);
+}
+
+.footer-section p {
+  margin: 0;
+  opacity: 0.92;
+}
+
+.footer-links a {
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.footer-links a:hover {
+  background: rgba(255, 255, 255, 0.32);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float,
+  .whatsapp-float::before {
+    animation: none;
+  }
+}
