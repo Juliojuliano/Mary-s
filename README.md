@@ -1,6 +1,6 @@
 # Mary's Brinq
 
-[![Vercel](https://img.shields.io/badge/deploy-vercel-000000?style=flat&logo=vercel&logoColor=white)](https://marys-brinq.vercel.app)
+[![Vercel](https://img.shields.io/badge/deploy-vercel-000000?style=flat&logo=vercel&logoColor=white)](https://marys-brinq-two.vercel.app)
 
 Landing page para Mary’s Brinq — locação de brinquedos, mesas e cadeiras no ABC.
 
@@ -13,7 +13,7 @@ Landing page para Mary’s Brinq — locação de brinquedos, mesas e cadeiras n
 - Tecnologia: React + TypeScript + Vite
 - Build de produção: `npm run build`
 - Diretório de saída: `dist/`
-- Deploy atual: https://marys-brinq.vercel.app
+- Deploy atual: https://marys-brinq-two.vercel.app
 
 ## Como rodar localmente
 
