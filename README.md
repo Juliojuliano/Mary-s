@@ -53,7 +53,7 @@ npx vercel --prod --yes
 
 - `src/App.tsx` — componente principal da landing page
 - `src/styles.css` — estilos da página
-- `public/foto05.jpeg` — favicon e logo
+- `public/logo.png` — favicon e logo (fundo transparente)
 - `src/imagens/` — imagens usadas na galeria
 
 ## Contatos e links
