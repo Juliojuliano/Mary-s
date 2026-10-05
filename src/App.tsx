@@ -4,10 +4,18 @@ import foto03 from './imagens/foto03.jpeg';
 import foto04 from './imagens/foto04.jpeg';
 import foto05 from './imagens/foto05.jpeg';
 
+// Links centralizados: altere aqui e a página inteira é atualizada
+const LINKS = {
+  instagram: 'https://www.instagram.com/marysbrinqsbc',
+  facebook: 'https://www.facebook.com/marysbrinq',
+  phone: 'tel:+5511980287933',
+  github: 'https://github.com/Juliojuliano/Mary-s'
+};
+
 const social: { name: string; url: string; icon: JSX.Element }[] = [
   {
     name: 'Insta',
-    url: 'https://www.instagram.com/marysbrinqsbc',
+    url: LINKS.instagram,
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <linearGradient id="instaGrad" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
@@ -23,7 +31,7 @@ const social: { name: string; url: string; icon: JSX.Element }[] = [
   },
   {
     name: 'Face',
-    url: 'https://www.facebook.com/marysbrinq',
+    url: LINKS.facebook,
     icon: (
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="2" y="2" width="20" height="20" rx="6" fill="#1877F2" />
@@ -75,10 +83,10 @@ function App() {
           </p>
 
           <div className="hero-actions">
-            <a href="https://www.instagram.com/marysbrinqsbc" target="_blank" rel="noreferrer" className="button button-primary">
+            <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer" className="button button-primary">
               Orçamento pelo Instagram
             </a>
-            <a href="tel:+5511980287933" className="button button-phone">
+            <a href={LINKS.phone} className="button button-phone">
               📞 (11) 98028-7933
             </a>
             <a href="#servicos" className="button button-secondary">
@@ -94,7 +102,7 @@ function App() {
 
           <div className="social-links">
             {social.map((item) => (
-              <a key={item.name} href={item.url} target="_blank" rel="noreferrer" aria-label={item.name}>
+              <a key={item.name} href={item.url} target="_blank" rel="noopener noreferrer" aria-label={item.name}>
                 <span>{item.icon}</span>
               </a>
             ))}
@@ -154,6 +162,11 @@ function App() {
           <strong>Mary's Brinq</strong>
           <p>Locação de brinquedos, mesas e cadeiras no ABC.</p>
         </div>
+        <nav className="footer-links" aria-label="Links do rodapé">
+          <a href={LINKS.instagram} target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href={LINKS.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+          <a href={LINKS.github} target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
       </footer>
     </div>
   );
