@@ -55,10 +55,9 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
+  width: 58px;
   height: 50px;
-  border-radius: 18px;
-  object-fit: cover;
+  object-fit: contain; /* logo com fundo transparente: não cortar */
 }
 .brand-mark[src] {
   display: inline-flex;
@@ -200,9 +199,8 @@ textarea {
 
 .hero-card img {
   width: 100%;
-  border-radius: 28px;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .services-section,

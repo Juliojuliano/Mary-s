@@ -2,7 +2,7 @@ import foto01 from './imagens/foto01.jpeg';
 import foto02 from './imagens/foto02.jpeg';
 import foto03 from './imagens/foto03.jpeg';
 import foto04 from './imagens/foto04.jpeg';
-import foto05 from './imagens/foto05.jpeg';
+import logo from './imagens/logo.png';
 
 // Links centralizados: altere aqui e a página inteira é atualizada
 const LINKS = {
@@ -72,7 +72,7 @@ function App() {
     <div className="page-shell">
       <header className="page-header">
         <div className="brand">
-          <img src={foto05} className="brand-mark" alt="Mary's Brinq" />
+          <img src={logo} className="brand-mark" alt="Mary's Brinq" />
           <div>
             <strong>Mary's Brinq</strong>
             <p>Locação no ABC</p>
@@ -122,7 +122,7 @@ function App() {
 
         <div className="hero-visual">
           <div className="hero-card">
-            <img src={foto05} alt="Mary's Brinq festa infantil" />
+            <img src={logo} alt="Mary's Brinq festa infantil" />
           </div>
         </div>
       </section>
